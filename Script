@@ -316,7 +316,7 @@ Private Sub Document_Open()
                     Loop
                     Next myStoryRange
             
-            locations -InputBox("List the addresses of any other locations to be supported", "Alternate Locations", "<OTHER OFFICES>")
+            locations = InputBox("List the addresses of any other locations to be supported", "Alternate Locations", "<OTHER OFFICES>")
                 For Each myStoryRange In ActiveDocument.StoryRanges
                     With myStoryRange.Find
                         .Text = "<OTHER OFFICES>"
