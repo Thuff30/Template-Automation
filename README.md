@@ -5,14 +5,14 @@
   
   The script functions by asking key questions with test input boxes, then applying the user's input to replace key words or phrases throughout the document. This was accomplished in this case by using descriptive terms surrounded by < and > to denote a variable meant to be replaced such as <DATE> or <CLIENT>. See below for a sample of a block of code performing this action.
   
-  client = InputBox("Enter the client company name.", "Company Name", "<Client>")
-    For Each myStoryRange In ActiveDocument.StoryRanges
-        With myStoryRange.Find
-            .Text = "<CLIENT>"
-            .Replacement.Text = client
-            .Wrap = wdFindContinue
-            .Execute Replace:=wdReplaceAll
-        End With
+    client = InputBox("Enter the client company name.", "Company Name", "<Client>")
+        For Each myStoryRange In ActiveDocument.StoryRanges
+            With myStoryRange.Find
+                .Text = "<CLIENT>"
+                .Replacement.Text = client
+                .Wrap = wdFindContinue
+                .Execute Replace:=wdReplaceAll
+            End With
         Do While Not (myStoryRange.NextStoryRange Is Nothing)
             Set myStoryRange = myStoryRange.NextStoryRange
             With myStoryRange.Find
